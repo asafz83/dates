@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<button onclick="showDate()">Show Date</button> 
+<input type="checkbox" checked id="long"/>Show Long
+<br><br>
+<div id="result"></div>
+
+<script>
+	var datesArr = [
+		{short: 'Jan', long: "January"},
+		{short: 'Feb', long: "February"},
+		{short: 'Mar', long: "March"},
+		{short: 'Apr', long: "April"},
+		{short: 'May', long: "May"},
+		{short: 'Jun', long: "June"},
+		{short: 'Jul', long: "July"},
+		{short: 'Aug', long: "August"},
+		{short: 'Sep', long: "September"},
+		{short: 'Oct', long: "October"},
+		{short: 'Nov', long: "November"},
+		{short: 'Dec', long: "December"},
+	]
+	
+	
+	function showDate(){
+		var date = new Date();
+		var thisMonth;
+		if (document.getElementById('long').checked) {
+			var monthNumber = date.getMonth();
+			var dateObject = datesArr[monthNumber];
+			thisMonth = dateObject.long;
+			//thisMonth = datesArr[date.getMonth()].long;
+		} else {
+			thisMonth = datesArr[date.getMonth()].short;
+		}
+		var str = "The date is " + thisMonth + " " + date.getDate() + ", " + date.getFullYear();
+		document.getElementById("result").innerHTML = str;
+	}
+</script>
+
+</body>
+</html>
